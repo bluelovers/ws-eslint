@@ -1,0 +1,12 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "cjk"
+  ],
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "no-irregular-whitespace": "off",
+    "cjk/no-irregular-whitespace-extra": "error"
+  }
+}

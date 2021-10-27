@@ -1,0 +1,55 @@
+{
+  "name": "eslint-plugin-cjk",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "bluelovers",
+    "eslint",
+    "eslint plugin",
+    "config",
+    "eslint",
+    "eslint-plugin",
+    "eslintconfig",
+    "eslintplugin",
+    "eslintrc",
+    "javascript",
+    "rc",
+    "styleguide",
+    "ts",
+    "typescript"
+  ],
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "coverage": "yarn run test -- --coverage",
+    "test": "tsdx test --passWithNoTests",
+    "prebuild_": "yarn run test",
+    "build": "tsdx build --target node --name index",
+    "preversion": "yarn run build",
+    "postbuild": "ynpx dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "lint": "ynpx --quiet eslint -- **/*.ts",
+    "test:jest": "jest --passWithNoTests",
+    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "packageManager": "yarn@^1.22.11"
+}
