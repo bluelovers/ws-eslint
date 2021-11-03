@@ -2,7 +2,7 @@
  * https://github.com/eslint/eslint/blob/main/lib/shared/ast-utils.js
  */
 
-const lineBreakPattern = /\r\n|[\r\n\u2028\u2029]/u;
+export const lineBreakPattern = /\r\n|[\r\n\u2028\u2029]/u;
 
 /**
  * Creates a version of the `lineBreakPattern` regex with the global flag.

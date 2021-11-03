@@ -5,15 +5,27 @@
 /// <reference types="json-schema" />
 /// <reference types="node" />
 
-/**
- * Created by user on 2021/10/27.
- */
+export declare const enum ESLINT_SWITCH {
+	ERROR = "error",
+	OFF = "off"
+}
+export declare const enum ESLINT_META_TYPE {
+	PROBLEM = "problem"
+}
+export interface IOptions {
+	skipComments?: boolean;
+	skipStrings?: boolean;
+	skipRegExps?: boolean;
+	skipTemplates?: boolean;
+	ignores?: string[];
+}
 export declare const rules: {
 	"no-irregular-whitespace-extra": {
 		meta: {
-			type: "problem";
+			type: ESLINT_META_TYPE.PROBLEM;
 			docs: {
 				description: string;
+				category: string;
 				recommended: true;
 				url: string;
 			};
@@ -36,6 +48,12 @@ export declare const rules: {
 						type: "boolean";
 						default: false;
 					};
+					ignores: {
+						type: "array";
+						items: {
+							type: "string";
+						};
+					};
 				};
 				additionalProperties: false;
 			}[];
@@ -43,14 +61,24 @@ export declare const rules: {
 				noIrregularWhitespace: string;
 			};
 		};
+		defaultOptions: (ESLINT_SWITCH | IOptions)[];
 		create(context: import("eslint").Rule.RuleContext): any;
 	};
 };
 export declare const configs: {
 	recommended: {
-		plugins: string[];
+		plugins: "cjk"[];
 		rules: {
-			"cjk/no-irregular-whitespace-extra": string;
+			"no-irregular-whitespace": (ESLINT_SWITCH | {
+				skipComments: boolean;
+				skipStrings: boolean;
+				skipTemplates: boolean;
+				skipRegExps: boolean;
+			})[];
+			"cjk/no-irregular-whitespace-extra": ESLINT_SWITCH | [
+				ESLINT_SWITCH,
+				...any[]
+			];
 		};
 	};
 };
