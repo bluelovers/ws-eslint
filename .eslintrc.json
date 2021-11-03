@@ -4,9 +4,12 @@
     "@typescript-eslint",
     "cjk"
   ],
-  "extends": ["plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
     "no-irregular-whitespace": "off",
-    "cjk/no-irregular-whitespace-extra": "error"
+    "cjk/no-irregular-whitespace-extra": "error",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

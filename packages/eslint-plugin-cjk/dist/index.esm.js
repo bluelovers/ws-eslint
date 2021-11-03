@@ -181,17 +181,14 @@ const rules = {
   [noIrregularWhitespace.name]: noIrregularWhitespace.rule
 };
 
-const config = {
-  rules,
-  configs: {
-    recommended: {
-      plugins: ["cjk"],
-      rules: {
-        "cjk/no-irregular-whitespace-extra": "error"
-      }
+const configs = {
+  recommended: {
+    plugins: ["cjk"],
+    rules: {
+      "cjk/no-irregular-whitespace-extra": "error"
     }
   }
 };
 
-export { config, config as default };
+export { configs, rules };
 //# sourceMappingURL=index.esm.js.map

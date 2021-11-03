@@ -183,18 +183,15 @@ const rules = {
   [noIrregularWhitespace.name]: noIrregularWhitespace.rule
 };
 
-const config = {
-  rules,
-  configs: {
-    recommended: {
-      plugins: ["cjk"],
-      rules: {
-        "cjk/no-irregular-whitespace-extra": "error"
-      }
+const configs = {
+  recommended: {
+    plugins: ["cjk"],
+    rules: {
+      "cjk/no-irregular-whitespace-extra": "error"
     }
   }
 };
 
-exports.config = config;
-exports['default'] = config;
+exports.configs = configs;
+exports.rules = rules;
 //# sourceMappingURL=index.cjs.development.js.map
