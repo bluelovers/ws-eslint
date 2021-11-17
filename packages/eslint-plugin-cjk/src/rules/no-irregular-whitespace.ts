@@ -298,7 +298,7 @@ export const noIrregularWhitespace = createRule({
 		 * @private
 		 */
 		// @formatter:off
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
+		// eslint-disable-next-line @typescript-eslint/no-empty-function,no-empty-function
 		function noop() {}
 		// @formatter:on
 

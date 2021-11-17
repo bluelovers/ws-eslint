@@ -36,7 +36,7 @@ export default FastGlob([
 		lines.push(...rules);
 		lines.push('};');
 		lines.push('');
-		lines.push('export default rules');
+		lines.push('export default rules;');
 		lines.push('');
 		lines.push('');
 

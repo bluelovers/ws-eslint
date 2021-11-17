@@ -5,5 +5,5 @@ export const rules = {
 	[noIrregularWhitespace.name]: noIrregularWhitespace.rule,
 };
 
-export default rules
+export default rules;
 
