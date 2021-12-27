@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 const lineBreakPattern = /\r\n|[\r\n\u2028\u2029]/u;
 function createGlobalLinebreakMatcher() {
   return new RegExp(lineBreakPattern.source, "gu");
@@ -274,4 +276,4 @@ const configs = {
 
 exports.configs = configs;
 exports.rules = rules;
-//# sourceMappingURL=index.cjs.development.js.map
+//# sourceMappingURL=index.cjs.development.cjs.map

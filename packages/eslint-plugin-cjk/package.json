@@ -7,7 +7,6 @@
     "eslint",
     "eslint plugin",
     "config",
-    "eslint",
     "eslint-plugin",
     "eslintconfig",
     "eslintplugin",
@@ -16,12 +15,30 @@
     "rc",
     "styleguide",
     "ts",
-    "typescript"
+    "typescript",
+    "create-by-yarn-tool",
+    "create-by-tsdx"
   ],
+  "homepage": "https://github.com/bluelovers/ws-eslint/tree/master/packages/eslint-plugin-cjk#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-eslint/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-eslint.git"
+  },
   "license": "ISC",
   "author": "bluelovers",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.esm.mjs",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "directories": {
@@ -33,16 +50,26 @@
   ],
   "scripts": {
     "coverage": "yarn run test -- --coverage",
-    "test": "tsdx test --passWithNoTests",
-    "prebuild_": "yarn run test",
-    "prebuild": "ts-node ./scripts/build-index.ts",
-    "build": "tsdx build --target node --name index",
-    "preversion": "yarn run build",
-    "postbuild": "ynpx dts-bundle-generator -o dist/index.d.ts src/index.ts",
     "lint": "ynpx --quiet eslint -- **/*.ts",
+    "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "posttest": "yarn run build",
+    "prebuild": "ts-node ./scripts/build-index.ts",
+    "prebuild_": "yarn run test",
+    "build": "yarn run build:tsdx && yarn run build:dts",
+    "build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+    "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
+    "postbuild": "ynpx dts-bundle-generator -o dist/index.d.ts src/index.ts",
+    "preversion": "yarn run build",
+    "version": "echo version",
+    "postversion": "echo postversion",
+    "prepublish": "echo prepublish",
+    "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "publish": "echo publish",
+    "postpublish": "echo postpublish",
+    "postpublishOnly": "echo postpublishOnly",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
@@ -55,7 +82,7 @@
     "@bluelovers/fast-glob": "^3.0.4",
     "@types/bluebird": "^3.5.36",
     "@types/fs-extra": "^9.0.13",
-    "@types/lodash": "^4.14.176",
+    "@types/lodash": "^4.14.178",
     "fs-extra": "^10.0.0",
     "lodash": "^4.17.21"
   },

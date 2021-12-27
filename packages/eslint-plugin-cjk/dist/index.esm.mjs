@@ -271,4 +271,4 @@ const configs = {
 };
 
 export { configs, rules };
-//# sourceMappingURL=index.esm.js.map
+//# sourceMappingURL=index.esm.mjs.map

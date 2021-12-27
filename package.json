@@ -43,16 +43,16 @@
   },
   "resolutions": {},
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.2.0",
-    "@typescript-eslint/parser": "^5.2.0",
-    "eslint": "^8.1.0",
-    "ts-type": "^1.2.32",
-    "tslib": "^2.3.0"
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.5.0",
+    "ts-type": "^2.1.2",
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.20",
-    "@types/eslint": "^7.28.2",
-    "@types/jest": "^26.0.24",
+    "@bluelovers/tsconfig": "^1.0.28",
+    "@types/eslint": "^8.2.1",
+    "@types/jest": "^27.0.3",
     "@types/node": "*"
   },
   "peerDependencies": {
