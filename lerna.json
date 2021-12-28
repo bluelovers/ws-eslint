@@ -1,6 +1,8 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "packages/@bluelovers/*",
+    "!**/test/**"
   ],
   "command": {
     "publish": {

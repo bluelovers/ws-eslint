@@ -17,7 +17,9 @@
     "typescript"
   ],
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/@bluelovers/*",
+    "!**/test/**"
   ],
   "scripts": {
     "test": "yarn-tool ws run test",
