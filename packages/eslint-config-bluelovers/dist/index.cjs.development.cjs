@@ -72,7 +72,10 @@ var rules = {
 			boolean: false
 		}
 	],
-	"no-implied-eval": "error",
+	"no-implied-eval": "off",
+	"@typescript-eslint/no-implied-eval": [
+		"error"
+	],
 	"no-invalid-regexp": "error",
 	"no-invalid-this": "warn",
 	"no-iterator": "error",
@@ -279,7 +282,31 @@ var rules = {
 			]
 		}
 	],
-	"@typescript-eslint/ban-ts-comment": "off"
+	"@typescript-eslint/ban-ts-comment": "off",
+	"@typescript-eslint/no-this-alias": [
+		"error",
+		{
+			allowDestructuring: false,
+			allowedNames: [
+				"self"
+			]
+		}
+	],
+	"@typescript-eslint/prefer-nullish-coalescing": [
+		"error"
+	],
+	"@typescript-eslint/prefer-literal-enum-member": [
+		"error",
+		{
+			allowBitwiseExpressions: true
+		}
+	],
+	"@typescript-eslint/prefer-optional-chain": [
+		"error"
+	],
+	"@typescript-eslint/no-confusing-non-null-assertion": [
+		"error"
+	]
 };
 var EslintrcJson = {
 	parser: parser,

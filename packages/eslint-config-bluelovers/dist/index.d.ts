@@ -48,6 +48,7 @@ declare const _rules: {
 		boolean: boolean;
 	})[];
 	"no-implied-eval": string;
+	"@typescript-eslint/no-implied-eval": string[];
 	"no-invalid-regexp": string;
 	"no-invalid-this": string;
 	"no-iterator": string;
@@ -191,6 +192,16 @@ declare const _rules: {
 		ignores: string[];
 	})[];
 	"@typescript-eslint/ban-ts-comment": string;
+	"@typescript-eslint/no-this-alias": (string | {
+		allowDestructuring: boolean;
+		allowedNames: string[];
+	})[];
+	"@typescript-eslint/prefer-nullish-coalescing": string[];
+	"@typescript-eslint/prefer-literal-enum-member": (string | {
+		allowBitwiseExpressions: boolean;
+	})[];
+	"@typescript-eslint/prefer-optional-chain": string[];
+	"@typescript-eslint/no-confusing-non-null-assertion": string[];
 };
 
 export {
