@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.1...eslint-config-bluelovers@2.0.2) (2021-12-30)
+
+
+### ✨　Features
+
+* update .eslintrc-json.json ([b8fd499](https://github.com/bluelovers/ws-eslint/commit/b8fd4998889469b9c8de70b9e5a8593b3edb0577))
+
+
+
+
+
 ## 2.0.1 (2021-12-28)
 
 
