@@ -13,7 +13,7 @@ var rules = {
 	"arrow-parens": "warn",
 	"block-scoped-var": "error",
 	"consistent-return": [
-		"error",
+		"warn",
 		{
 			treatUndefinedAsUnspecified: true
 		}
@@ -25,6 +25,14 @@ var rules = {
 	"eol-last": [
 		"warn",
 		"always"
+	],
+	"no-multiple-empty-lines": [
+		"error",
+		{
+			max: 1,
+			maxEOF: 1,
+			maxBOF: 1
+		}
 	],
 	eqeqeq: [
 		"error",
@@ -48,9 +56,22 @@ var rules = {
 	"no-dupe-keys": "error",
 	"no-duplicate-case": "error",
 	"no-else-return": "warn",
-	"no-empty": "error",
+	"no-empty": [
+		"warn",
+		{
+			allowEmptyCatch: true
+		}
+	],
 	"no-empty-character-class": "error",
-	"no-empty-function": "error",
+	"no-empty-function": "off",
+	"@typescript-eslint/no-empty-function": [
+		"error",
+		{
+			allow: [
+				"decoratedFunctions"
+			]
+		}
+	],
 	"no-empty-pattern": "error",
 	"no-eq-null": "off",
 	"no-eval": "error",
@@ -58,7 +79,10 @@ var rules = {
 	"no-extend-native": "error",
 	"no-extra-bind": "error",
 	"no-extra-label": "error",
-	"no-extra-semi": "error",
+	"no-extra-semi": "off",
+	"@typescript-eslint/no-extra-semi": [
+		"error"
+	],
 	"no-fallthrough": "warn",
 	"no-floating-decimal": "error",
 	"no-func-assign": "error",
@@ -91,7 +115,11 @@ var rules = {
 		"warn",
 		"except-parens"
 	],
-	"no-return-await": "error",
+	"no-return-await": "off",
+	"@typescript-eslint/return-await": [
+		"error",
+		"in-try-catch"
+	],
 	"no-self-assign": [
 		"error",
 		{
@@ -109,7 +137,7 @@ var rules = {
 	"no-unexpected-multiline": "error",
 	"no-unmodified-loop-condition": "error",
 	"no-unreachable": "error",
-	"no-unsafe-finally": "error",
+	"no-unsafe-finally": "warn",
 	"no-unsafe-negation": "error",
 	"no-unused-expressions": [
 		"warn",
@@ -119,7 +147,10 @@ var rules = {
 		}
 	],
 	"no-unused-labels": "error",
-	"no-unused-vars": "warn",
+	"no-unused-vars": "off",
+	"@typescript-eslint/no-unused-vars": [
+		"warn"
+	],
 	"no-useless-call": "warn",
 	"no-useless-concat": "warn",
 	"no-useless-escape": "warn",
@@ -145,7 +176,8 @@ var rules = {
 		"warn",
 		"as-needed"
 	],
-	"require-await": "warn",
+	"require-await": "off",
+	"@typescript-eslint/require-await": "warn",
 	"require-jsdoc": [
 		"warn",
 		{
@@ -226,7 +258,7 @@ var rules = {
 			}
 		}
 	],
-	"@typescript-eslint/member-ordering": "warn",
+	"@typescript-eslint/member-ordering": "off",
 	"@typescript-eslint/no-empty-interface": [
 		"error",
 		{
@@ -236,6 +268,7 @@ var rules = {
 	"@typescript-eslint/no-object-literal-type-assertion": [
 		"off"
 	],
+	"no-use-before-define": "off",
 	"@typescript-eslint/no-use-before-define": [
 		"error",
 		{
@@ -302,6 +335,20 @@ var rules = {
 	],
 	"@typescript-eslint/no-confusing-non-null-assertion": [
 		"error"
+	],
+	"linebreak-style": [
+		"error",
+		"unix"
+	],
+	"@typescript-eslint/no-require-imports": [
+		"warn"
+	],
+	"@typescript-eslint/prefer-readonly-parameter-types": [
+		"warn",
+		{
+			checkParameterProperties: true,
+			treatMethodsAsReadonly: true
+		}
 	]
 };
 var EslintrcJson = {

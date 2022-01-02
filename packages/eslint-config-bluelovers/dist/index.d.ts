@@ -14,6 +14,11 @@ declare const _rules: {
 	"default-case": string[];
 	"dot-notation": string;
 	"eol-last": string[];
+	"no-multiple-empty-lines": (string | {
+		max: number;
+		maxEOF: number;
+		maxBOF: number;
+	})[];
 	eqeqeq: string[];
 	"getter-return": (string | {
 		allowImplicit: boolean;
@@ -30,9 +35,14 @@ declare const _rules: {
 	"no-dupe-keys": string;
 	"no-duplicate-case": string;
 	"no-else-return": string;
-	"no-empty": string;
+	"no-empty": (string | {
+		allowEmptyCatch: boolean;
+	})[];
 	"no-empty-character-class": string;
 	"no-empty-function": string;
+	"@typescript-eslint/no-empty-function": (string | {
+		allow: string[];
+	})[];
 	"no-empty-pattern": string;
 	"no-eq-null": string;
 	"no-eval": string;
@@ -41,6 +51,7 @@ declare const _rules: {
 	"no-extra-bind": string;
 	"no-extra-label": string;
 	"no-extra-semi": string;
+	"@typescript-eslint/no-extra-semi": string[];
 	"no-fallthrough": string;
 	"no-floating-decimal": string;
 	"no-func-assign": string;
@@ -66,6 +77,7 @@ declare const _rules: {
 	"no-regex-spaces": string;
 	"no-return-assign": string[];
 	"no-return-await": string;
+	"@typescript-eslint/return-await": string[];
 	"no-self-assign": (string | {
 		props: boolean;
 	})[];
@@ -88,6 +100,7 @@ declare const _rules: {
 	})[];
 	"no-unused-labels": string;
 	"no-unused-vars": string;
+	"@typescript-eslint/no-unused-vars": string[];
 	"no-useless-call": string;
 	"no-useless-concat": string;
 	"no-useless-escape": string;
@@ -105,6 +118,7 @@ declare const _rules: {
 	"prefer-rest-params": string;
 	radix: string[];
 	"require-await": string;
+	"@typescript-eslint/require-await": string;
 	"require-jsdoc": (string | {
 		require: {
 			FunctionDeclaration: boolean;
@@ -166,6 +180,7 @@ declare const _rules: {
 		allowSingleExtends: boolean;
 	})[];
 	"@typescript-eslint/no-object-literal-type-assertion": string[];
+	"no-use-before-define": string;
 	"@typescript-eslint/no-use-before-define": (string | {
 		functions: boolean;
 		classes: boolean;
@@ -202,6 +217,12 @@ declare const _rules: {
 	})[];
 	"@typescript-eslint/prefer-optional-chain": string[];
 	"@typescript-eslint/no-confusing-non-null-assertion": string[];
+	"linebreak-style": string[];
+	"@typescript-eslint/no-require-imports": string[];
+	"@typescript-eslint/prefer-readonly-parameter-types": (string | {
+		checkParameterProperties: boolean;
+		treatMethodsAsReadonly: boolean;
+	})[];
 };
 
 export {
