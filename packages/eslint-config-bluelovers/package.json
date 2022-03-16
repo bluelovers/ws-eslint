@@ -71,14 +71,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-tsconfig": "^1.0.56",
+    "@yarn-tool/find-tsconfig": "^1.0.62",
     "eslint-plugin-cjk": "^1.0.3",
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
-    "eslint": "^8.5.0"
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint": "^8.11.0"
   },
   "packageManager": "yarn@^1.22.11"
 }
