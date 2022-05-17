@@ -283,6 +283,7 @@ var rules = {
 		}
 	],
 	"@typescript-eslint/no-useless-constructor": "warn",
+	"@typescript-eslint/no-useless-empty-export": "error",
 	"@typescript-eslint/prefer-includes": "warn",
 	"@typescript-eslint/prefer-regexp-exec": "error",
 	"@typescript-eslint/promise-function-async": [

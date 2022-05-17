@@ -1,90 +1,61 @@
-const lineBreakPattern = /\r\n|[\r\n\u2028\u2029]/u;
+const e = /\r\n|[\r\n\u2028\u2029]/u;
+
 function createGlobalLinebreakMatcher() {
-  return new RegExp(lineBreakPattern.source, "gu");
+  return new RegExp(e.source, "gu");
 }
 
-function createRule(meta, rule) {
-  return { ...meta,
-    rule
+function createRule(e, r) {
+  return {
+    ...e,
+    rule: r
   };
 }
 
-function removeRegexClass(re, ignoresRe) {
-  if (!ignoresRe) {
-    return re;
-  }
-
-  const source = re.source.replace(ignoresRe, "");
-  return new RegExp(source, re.flags);
-}
-function handleIgnoreRe(ignores) {
-  if (!ignores || !(ignores !== null && ignores !== void 0 && ignores.length)) {
-    return null;
-  }
-
-  const source = ignores.map(c => {
-    if (c === "\f" || c === "\\f" || c === "\\\\f") {
-      return "\\\\f";
-    } else if (c === "\v" || c === "\\v" || c === "\\\\v") {
-      return "\\\\v";
-    } else if (c.startsWith("\\\\u")) {
-      return c;
-    } else if (c.length === 1) {
-      return `\\\\u${c.codePointAt(0).toString(16)}`;
-    } else if (c.startsWith("\\\\")) {
-      return c;
-    }
-
-    throw new TypeError(`${c} \\u${c.codePointAt(0).toString(16)}`);
-  }).join("|");
-  return new RegExp(source, "ug");
+function removeRegexClass(e, r) {
+  if (!r) return e;
+  const n = e.source.replace(r, "");
+  return new RegExp(n, e.flags);
 }
 
-const ALL_IRREGULARS = /[\f\v\u0085\ufeff\u00a0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u202f\u205f\u3000\u2028\u2029]/u;
-const IRREGULAR_WHITESPACE = /[\f\v\u0085\ufeff\u00a0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u202f\u205f\u3000]+/mgu;
-const IRREGULAR_LINE_TERMINATORS = /[\u2028\u2029]/mgu;
-const LINE_BREAK = /*#__PURE__*/createGlobalLinebreakMatcher();
-const ERROR_MESSAGE = "Irregular whitespace not allowed.";
-const MESSAGE_ID = "noIrregularWhitespace";
-const noIrregularWhitespace = /*#__PURE__*/createRule({
+const r = /[\f\v\u0085\ufeff\u00a0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u202f\u205f\u3000\u2028\u2029]/u, n = /[\f\v\u0085\ufeff\u00a0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u202f\u205f\u3000]+/gmu, t = /[\u2028\u2029]/gmu, o = createGlobalLinebreakMatcher(), i = "noIrregularWhitespace", s = createRule({
   name: "no-irregular-whitespace-extra",
   configs: {
-    recommended: ["error", {
-      "skipComments": true,
-      "skipStrings": false,
-      "skipTemplates": false,
-      "skipRegExps": false,
-      "ignores": ['\u3000']
-    }]
+    recommended: [ "error", {
+      skipComments: !0,
+      skipStrings: !1,
+      skipTemplates: !1,
+      skipRegExps: !1,
+      ignores: [ "　" ]
+    } ]
   },
-  messageId: MESSAGE_ID
+  messageId: i
 }, {
   meta: {
     type: "problem",
     docs: {
       description: "disallow irregular whitespace",
       category: "Possible Errors",
-      recommended: true,
+      recommended: !0,
       url: "https://eslint.org/docs/rules/no-irregular-whitespace"
     },
-    schema: [{
+    schema: [ {
       type: "object",
       properties: {
         skipComments: {
           type: "boolean",
-          default: false
+          default: !1
         },
         skipStrings: {
           type: "boolean",
-          default: true
+          default: !0
         },
         skipTemplates: {
           type: "boolean",
-          default: false
+          default: !1
         },
         skipRegExps: {
           type: "boolean",
-          default: false
+          default: !1
         },
         ignores: {
           type: "array",
@@ -93,182 +64,120 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
           }
         }
       },
-      additionalProperties: false
-    }],
+      additionalProperties: !1
+    } ],
     messages: {
-      [MESSAGE_ID]: ERROR_MESSAGE
+      [i]: "Irregular whitespace not allowed."
     }
   },
-  defaultOptions: ["error", {
-    "skipComments": true,
-    "skipStrings": false,
-    "skipTemplates": false,
-    "skipRegExps": false,
+  defaultOptions: [ "error", {
+    skipComments: !0,
+    skipStrings: !1,
+    skipTemplates: !1,
+    skipRegExps: !1,
     ignores: []
-  }],
-
-  create(context) {
-    let errors = [];
-    const options = context.options[0] || {};
-    const skipComments = !!options.skipComments;
-    const skipStrings = options.skipStrings !== false;
-    const skipRegExps = !!options.skipRegExps;
-    const skipTemplates = !!options.skipTemplates;
-    const sourceCode = context.getSourceCode();
-    const commentNodes = sourceCode.getAllComments();
-    const ignoresRe = handleIgnoreRe(options.ignores);
-    const ALL_IRREGULARS_LOCAL = removeRegexClass(ALL_IRREGULARS, ignoresRe);
-    const IRREGULAR_WHITESPACE_LOCAL = removeRegexClass(IRREGULAR_WHITESPACE, ignoresRe);
-
-    function removeWhitespaceError(node) {
-      const locStart = node.loc.start;
-      const locEnd = node.loc.end;
-      errors = errors.filter(({
-        loc: {
-          start: errorLocStart
-        }
-      }) => errorLocStart.line < locStart.line || errorLocStart.line === locStart.line && errorLocStart.column < locStart.column || errorLocStart.line === locEnd.line && errorLocStart.column >= locEnd.column || errorLocStart.line > locEnd.line);
+  } ],
+  create(e) {
+    let s = [];
+    const u = e.options[0] || {}, l = !!u.skipComments, a = !1 !== u.skipStrings, c = !!u.skipRegExps, p = !!u.skipTemplates, m = e.getSourceCode(), f = m.getAllComments(), g = function handleIgnoreRe(e) {
+      if (!e || null == e || !e.length) return null;
+      const r = e.map((e => {
+        if ("\f" === e || "\\f" === e || "\\\\f" === e) return "\\\\f";
+        if ("\v" === e || "\\v" === e || "\\\\v" === e) return "\\\\v";
+        if (e.startsWith("\\\\u")) return e;
+        if (1 === e.length) return `\\\\u${e.codePointAt(0).toString(16)}`;
+        if (e.startsWith("\\\\")) return e;
+        throw new TypeError(`${e} \\u${e.codePointAt(0).toString(16)}`);
+      })).join("|");
+      return new RegExp(r, "ug");
+    }(u.ignores), d = removeRegexClass(r, g), h = removeRegexClass(n, g);
+    function removeWhitespaceError(e) {
+      const r = e.loc.start, n = e.loc.end;
+      s = s.filter((({loc: {start: e}}) => e.line < r.line || e.line === r.line && e.column < r.column || e.line === n.line && e.column >= n.column || e.line > n.line));
     }
-
-    function removeInvalidNodeErrorsInIdentifierOrLiteral(node) {
-      const shouldCheckStrings = skipStrings && typeof node.value === "string";
-      const shouldCheckRegExps = skipRegExps && Boolean(node.regex);
-
-      if (shouldCheckStrings || shouldCheckRegExps) {
-        if (ALL_IRREGULARS_LOCAL.test(node.raw)) {
-          removeWhitespaceError(node);
-        }
-      }
+    function removeInvalidNodeErrorsInIdentifierOrLiteral(e) {
+      const r = a && "string" == typeof e.value, n = c && Boolean(e.regex);
+      (r || n) && d.test(e.raw) && removeWhitespaceError(e);
     }
-
-    function removeInvalidNodeErrorsInTemplateLiteral(node) {
-      if (typeof node.value.raw === "string") {
-        if (ALL_IRREGULARS_LOCAL.test(node.value.raw)) {
-          removeWhitespaceError(node);
-        }
-      }
+    function removeInvalidNodeErrorsInComment(e) {
+      d.test(e.value) && removeWhitespaceError(e);
     }
-
-    function removeInvalidNodeErrorsInComment(node) {
-      if (ALL_IRREGULARS_LOCAL.test(node.value)) {
-        removeWhitespaceError(node);
-      }
-    }
-
-    function checkForIrregularWhitespace(node) {
-      const sourceLines = sourceCode.lines;
-      sourceLines.forEach((sourceLine, lineIndex) => {
-        const lineNumber = lineIndex + 1;
-        let match;
-
-        while ((match = IRREGULAR_WHITESPACE_LOCAL.exec(sourceLine)) !== null) {
-          errors.push({
-            node,
-            messageId: MESSAGE_ID,
+    function noop() {}
+    const v = {};
+    return d.test(m.getText()) ? (v.Program = function(e) {
+      !function checkForIrregularWhitespace(e) {
+        m.lines.forEach(((r, n) => {
+          const t = n + 1;
+          let o;
+          for (;null !== (o = h.exec(r)); ) s.push({
+            node: e,
+            messageId: i,
             loc: {
               start: {
-                line: lineNumber,
-                column: match.index
+                line: t,
+                column: o.index
               },
               end: {
-                line: lineNumber,
-                column: match.index + match[0].length
+                line: t,
+                column: o.index + o[0].length
               }
             }
           });
-        }
-      });
-    }
-
-    function checkForIrregularLineTerminators(node) {
-      const source = sourceCode.getText(),
-            sourceLines = sourceCode.lines,
-            linebreaks = source.match(LINE_BREAK);
-      let lastLineIndex = -1,
-          match;
-
-      while ((match = IRREGULAR_LINE_TERMINATORS.exec(source)) !== null) {
-        const lineIndex = linebreaks.indexOf(match[0], lastLineIndex + 1) || 0;
-        errors.push({
-          node,
-          messageId: MESSAGE_ID,
-          loc: {
-            start: {
-              line: lineIndex + 1,
-              column: sourceLines[lineIndex].length
-            },
-            end: {
-              line: lineIndex + 2,
-              column: 0
+        }));
+      }(e), function checkForIrregularLineTerminators(e) {
+        const r = m.getText(), n = m.lines, u = r.match(o);
+        let l, a = -1;
+        for (;null !== (l = t.exec(r)); ) {
+          const r = u.indexOf(l[0], a + 1) || 0;
+          s.push({
+            node: e,
+            messageId: i,
+            loc: {
+              start: {
+                line: r + 1,
+                column: n[r].length
+              },
+              end: {
+                line: r + 2,
+                column: 0
+              }
             }
-          }
-        });
-        lastLineIndex = lineIndex;
-      }
-    }
-
-    function noop() {}
-
-    const nodes = {};
-
-    if (ALL_IRREGULARS_LOCAL.test(sourceCode.getText())) {
-      nodes.Program = function (node) {
-        checkForIrregularWhitespace(node);
-        checkForIrregularLineTerminators(node);
-      };
-
-      nodes.Identifier = removeInvalidNodeErrorsInIdentifierOrLiteral;
-      nodes.Literal = removeInvalidNodeErrorsInIdentifierOrLiteral;
-      nodes.TemplateElement = skipTemplates ? removeInvalidNodeErrorsInTemplateLiteral : noop;
-
-      nodes["Program:exit"] = function () {
-        if (skipComments) {
-          commentNodes.forEach(removeInvalidNodeErrorsInComment);
+          }), a = r;
         }
-
-        errors.forEach(error => context.report(error));
-      };
-    } else {
-      nodes.Program = noop;
-    }
-
-    return nodes;
+      }(e);
+    }, v.Identifier = removeInvalidNodeErrorsInIdentifierOrLiteral, v.Literal = removeInvalidNodeErrorsInIdentifierOrLiteral, 
+    v.TemplateElement = p ? function removeInvalidNodeErrorsInTemplateLiteral(e) {
+      "string" == typeof e.value.raw && d.test(e.value.raw) && removeWhitespaceError(e);
+    } : noop, v["Program:exit"] = function() {
+      l && f.forEach(removeInvalidNodeErrorsInComment), s.forEach((r => e.report(r)));
+    }) : v.Program = noop, v;
   }
-
-});
-
-const rules = {
-  [noIrregularWhitespace.name]: noIrregularWhitespace.rule
+}), u = {
+  [s.name]: s.rule
 };
 
-const PLUGIN_NAME = 'cjk';
-var ESLINT_SWITCH;
+var l, a;
 
-(function (ESLINT_SWITCH) {
-  ESLINT_SWITCH["ERROR"] = "error";
-  ESLINT_SWITCH["OFF"] = "off";
-})(ESLINT_SWITCH || (ESLINT_SWITCH = {}));
+!function(e) {
+  e.ERROR = "error", e.OFF = "off";
+}(l || (l = {})), function(e) {
+  e.PROBLEM = "problem";
+}(a || (a = {}));
 
-var ESLINT_META_TYPE;
-
-(function (ESLINT_META_TYPE) {
-  ESLINT_META_TYPE["PROBLEM"] = "problem";
-})(ESLINT_META_TYPE || (ESLINT_META_TYPE = {}));
-
-const configs = {
+const c = {
   recommended: {
-    plugins: [PLUGIN_NAME],
+    plugins: [ "cjk" ],
     rules: {
-      "no-irregular-whitespace": ["off", {
-        "skipComments": true,
-        "skipStrings": false,
-        "skipTemplates": false,
-        "skipRegExps": false
-      }],
-      [`${PLUGIN_NAME}/no-irregular-whitespace-extra`]: noIrregularWhitespace.configs.recommended
+      "no-irregular-whitespace": [ "off", {
+        skipComments: !0,
+        skipStrings: !1,
+        skipTemplates: !1,
+        skipRegExps: !1
+      } ],
+      "cjk/no-irregular-whitespace-extra": s.configs.recommended
     }
   }
 };
 
-export { configs, rules };
+export { c as configs, u as rules };
 //# sourceMappingURL=index.esm.mjs.map

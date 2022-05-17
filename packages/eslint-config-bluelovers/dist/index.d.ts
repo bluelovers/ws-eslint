@@ -188,6 +188,7 @@ declare const _rules: {
 		typedefs: boolean;
 	})[];
 	"@typescript-eslint/no-useless-constructor": string;
+	"@typescript-eslint/no-useless-empty-export": string;
 	"@typescript-eslint/prefer-includes": string;
 	"@typescript-eslint/prefer-regexp-exec": string;
 	"@typescript-eslint/promise-function-async": (string | {

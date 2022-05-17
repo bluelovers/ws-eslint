@@ -131,9 +131,9 @@ bin/**/*.d.cts
 **/node_modules
 *.tgz
 /tsconfig.json.tpl
-/.eslintrc-json.json
+/.eslintrc.json.tpl
 !tsconfig.json
-!.eslintrc-json.json
+!.eslintrc.json
 yarn-error.log
 *.log
 .git
@@ -198,8 +198,8 @@ jest.config.js.map
 !npm-shrinkwrap.json
 *.stat
 .vercel
-/test/tsconfig.json
-/tsconfig.json.tpl
+/test/*.tpl
+/*.tpl
 /report.json
 
 .opt-in
