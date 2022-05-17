@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.5...eslint-config-bluelovers@2.0.6) (2022-05-17)
+
+
+### ✨　Features
+
+* add `@typescript-eslint/no-useless-empty-export` ([6b15ca0](https://github.com/bluelovers/ws-eslint/commit/6b15ca0ef06b358b39bdd36b2a0c787ad601730b))
+
+
+### 🔖　Miscellaneous
+
+* . ([07bfada](https://github.com/bluelovers/ws-eslint/commit/07bfada7a370681c0186d302c2be386a33bb00e8))
+
+
+
+
+
 ## [2.0.5](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.4...eslint-config-bluelovers@2.0.5) (2022-03-16)
 
 

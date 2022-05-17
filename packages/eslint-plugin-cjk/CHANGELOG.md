@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-eslint/compare/eslint-plugin-cjk@1.0.5...eslint-plugin-cjk@1.0.6) (2022-05-17)
+
+
+### 🔖　Miscellaneous
+
+* . ([07bfada](https://github.com/bluelovers/ws-eslint/commit/07bfada7a370681c0186d302c2be386a33bb00e8))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-eslint/compare/eslint-plugin-cjk@1.0.4...eslint-plugin-cjk@1.0.5) (2022-03-16)
 
 
