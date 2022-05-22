@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.6...eslint-config-bluelovers@2.0.7) (2022-05-22)
+
+
+### ✨　Features
+
+* enable new rule ([6a92965](https://github.com/bluelovers/ws-eslint/commit/6a92965433786a5924929d1ae485147aa03107fc))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([e62a11a](https://github.com/bluelovers/ws-eslint/commit/e62a11aaa19509458ec0f9b3039c77cefe76a719))
+
+
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.5...eslint-config-bluelovers@2.0.6) (2022-05-17)
 
 
