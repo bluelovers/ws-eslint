@@ -218,6 +218,8 @@ declare const _rules: {
 	})[];
 	"@typescript-eslint/prefer-optional-chain": string[];
 	"@typescript-eslint/no-confusing-non-null-assertion": string[];
+	"no-misleading-character-class": string[];
+	"no-mixed-operators": string[];
 	"linebreak-style": string[];
 	"@typescript-eslint/no-require-imports": string[];
 	"@typescript-eslint/prefer-readonly-parameter-types": (string | {

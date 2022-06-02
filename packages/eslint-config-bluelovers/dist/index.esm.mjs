@@ -216,6 +216,8 @@ const e = "@typescript-eslint/parser", n = [ "@typescript-eslint", "cjk" ], o = 
   } ],
   "@typescript-eslint/prefer-optional-chain": [ "error" ],
   "@typescript-eslint/no-confusing-non-null-assertion": [ "error" ],
+  "no-misleading-character-class": [ "error" ],
+  "no-mixed-operators": [ "error" ],
   "linebreak-style": [ "error", "unix" ],
   "@typescript-eslint/no-require-imports": [ "warn" ],
   "@typescript-eslint/prefer-readonly-parameter-types": [ "warn", {

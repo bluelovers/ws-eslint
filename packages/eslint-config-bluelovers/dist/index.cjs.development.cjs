@@ -341,6 +341,12 @@ var rules = {
 	"@typescript-eslint/no-confusing-non-null-assertion": [
 		"error"
 	],
+	"no-misleading-character-class": [
+		"error"
+	],
+	"no-mixed-operators": [
+		"error"
+	],
 	"linebreak-style": [
 		"error",
 		"unix"
