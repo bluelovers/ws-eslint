@@ -193,10 +193,14 @@ const e = "@typescript-eslint/parser", n = [ "@typescript-eslint", "cjk" ], o = 
     allowedPromiseNames: [ "Thenable", "Bluebird" ]
   } ],
   "@typescript-eslint/require-array-sort-compare": "warn",
-  "@typescript-eslint/restrict-plus-operands": "warn",
+  "@typescript-eslint/restrict-plus-operands": [ "warn", {
+    checkCompoundAssignments: !0
+  } ],
   semi: "off",
   "@typescript-eslint/semi": [ "warn", "always" ],
-  "@typescript-eslint/unbound-method": "error",
+  "@typescript-eslint/unbound-method": [ "error", {
+    ignoreStatic: !0
+  } ],
   "no-irregular-whitespace": "off",
   "cjk/no-irregular-whitespace-extra": [ "error", {
     skipComments: !0,
@@ -208,7 +212,7 @@ const e = "@typescript-eslint/parser", n = [ "@typescript-eslint", "cjk" ], o = 
   "@typescript-eslint/ban-ts-comment": "off",
   "@typescript-eslint/no-this-alias": [ "error", {
     allowDestructuring: !1,
-    allowedNames: [ "self" ]
+    allowedNames: [ "_self", "_this", "self" ]
   } ],
   "@typescript-eslint/prefer-nullish-coalescing": [ "error" ],
   "@typescript-eslint/prefer-literal-enum-member": [ "error", {
@@ -216,6 +220,17 @@ const e = "@typescript-eslint/parser", n = [ "@typescript-eslint", "cjk" ], o = 
   } ],
   "@typescript-eslint/prefer-optional-chain": [ "error" ],
   "@typescript-eslint/no-confusing-non-null-assertion": [ "error" ],
+  "@typescript-eslint/no-misused-promises": [ "error" ],
+  "@typescript-eslint/func-call-spacing": [ "error", "never" ],
+  "no-loop-func": "off",
+  "@typescript-eslint/no-loop-func": [ "error" ],
+  "@typescript-eslint/no-unnecessary-type-assertion": [ "error" ],
+  "@typescript-eslint/no-var-requires": "error",
+  "@typescript-eslint/prefer-as-const": "error",
+  "@typescript-eslint/prefer-for-of": "warn",
+  "@typescript-eslint/prefer-function-type": "warn",
+  "@typescript-eslint/type-annotation-spacing": [ "error" ],
+  "@typescript-eslint/unified-signatures": "warn",
   "no-misleading-character-class": [ "error" ],
   "no-mixed-operators": [ "error" ],
   "linebreak-style": [ "error", "unix" ],

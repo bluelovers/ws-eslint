@@ -296,13 +296,23 @@ var rules = {
 		}
 	],
 	"@typescript-eslint/require-array-sort-compare": "warn",
-	"@typescript-eslint/restrict-plus-operands": "warn",
+	"@typescript-eslint/restrict-plus-operands": [
+		"warn",
+		{
+			checkCompoundAssignments: true
+		}
+	],
 	semi: "off",
 	"@typescript-eslint/semi": [
 		"warn",
 		"always"
 	],
-	"@typescript-eslint/unbound-method": "error",
+	"@typescript-eslint/unbound-method": [
+		"error",
+		{
+			ignoreStatic: true
+		}
+	],
 	"no-irregular-whitespace": "off",
 	"cjk/no-irregular-whitespace-extra": [
 		"error",
@@ -322,6 +332,8 @@ var rules = {
 		{
 			allowDestructuring: false,
 			allowedNames: [
+				"_self",
+				"_this",
 				"self"
 			]
 		}
@@ -341,6 +353,28 @@ var rules = {
 	"@typescript-eslint/no-confusing-non-null-assertion": [
 		"error"
 	],
+	"@typescript-eslint/no-misused-promises": [
+		"error"
+	],
+	"@typescript-eslint/func-call-spacing": [
+		"error",
+		"never"
+	],
+	"no-loop-func": "off",
+	"@typescript-eslint/no-loop-func": [
+		"error"
+	],
+	"@typescript-eslint/no-unnecessary-type-assertion": [
+		"error"
+	],
+	"@typescript-eslint/no-var-requires": "error",
+	"@typescript-eslint/prefer-as-const": "error",
+	"@typescript-eslint/prefer-for-of": "warn",
+	"@typescript-eslint/prefer-function-type": "warn",
+	"@typescript-eslint/type-annotation-spacing": [
+		"error"
+	],
+	"@typescript-eslint/unified-signatures": "warn",
 	"no-misleading-character-class": [
 		"error"
 	],

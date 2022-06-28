@@ -195,10 +195,14 @@ declare const _rules: {
 		allowedPromiseNames: string[];
 	})[];
 	"@typescript-eslint/require-array-sort-compare": string;
-	"@typescript-eslint/restrict-plus-operands": string;
+	"@typescript-eslint/restrict-plus-operands": (string | {
+		checkCompoundAssignments: boolean;
+	})[];
 	semi: string;
 	"@typescript-eslint/semi": string[];
-	"@typescript-eslint/unbound-method": string;
+	"@typescript-eslint/unbound-method": (string | {
+		ignoreStatic: boolean;
+	})[];
 	"no-irregular-whitespace": string;
 	"cjk/no-irregular-whitespace-extra": (string | {
 		skipComments: boolean;
@@ -218,6 +222,17 @@ declare const _rules: {
 	})[];
 	"@typescript-eslint/prefer-optional-chain": string[];
 	"@typescript-eslint/no-confusing-non-null-assertion": string[];
+	"@typescript-eslint/no-misused-promises": string[];
+	"@typescript-eslint/func-call-spacing": string[];
+	"no-loop-func": string;
+	"@typescript-eslint/no-loop-func": string[];
+	"@typescript-eslint/no-unnecessary-type-assertion": string[];
+	"@typescript-eslint/no-var-requires": string;
+	"@typescript-eslint/prefer-as-const": string;
+	"@typescript-eslint/prefer-for-of": string;
+	"@typescript-eslint/prefer-function-type": string;
+	"@typescript-eslint/type-annotation-spacing": string[];
+	"@typescript-eslint/unified-signatures": string;
 	"no-misleading-character-class": string[];
 	"no-mixed-operators": string[];
 	"linebreak-style": string[];
