@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.9...eslint-config-bluelovers@2.0.10) (2022-07-10)
+
+
+### ♻️　Dependencies
+
+* update deps ([9671b7e](https://github.com/bluelovers/ws-eslint/commit/9671b7edd2d72d97e43c4b8cf17b16c57846bc7c))
+
+
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.8...eslint-config-bluelovers@2.0.9) (2022-06-28)
 
 
