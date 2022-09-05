@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-cjk",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "keywords": [
     "bluelovers",
@@ -87,6 +87,5 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4"
   },
-  "devDependencies": {},
   "packageManager": "yarn@^1.22.11"
 }
