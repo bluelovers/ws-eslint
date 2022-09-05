@@ -51,7 +51,9 @@
     "test": "yarn run test:eslint",
     "test:eslint": "eslint -c ./dist/index.cjs --no-ignore ./test/eslint-test.ts",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
     "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
     "posttest": "echo posttest",
     "prebuild": "ts-node ./test/script/build-index.ts",
@@ -81,14 +83,13 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-tsconfig": "^2.0.0",
-    "eslint-plugin-cjk": "^1.0.6",
-    "tslib": "^2"
+    "@yarn-tool/find-tsconfig": "^2.0.5",
+    "eslint-plugin-cjk": "^1.0.6"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
-    "eslint": "^8.19.0"
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "^8.23.0"
   },
   "packageManager": "yarn@^1.22.11"
 }

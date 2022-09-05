@@ -55,7 +55,9 @@
     "pretest": "echo pretest",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
     "posttest": "yarn run build",
     "prebuild": "ts-node ./scripts/build-index.ts",
     "prebuild_": "yarn run test",
@@ -83,16 +85,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/fast-glob": "^3.0.4",
-    "tslib": "^2"
+    "@bluelovers/fast-glob": "^3.0.4"
   },
-  "devDependencies": {
-    "@bluelovers/fast-glob": "^3.0.4",
-    "@types/bluebird": "^3.5.36",
-    "@types/fs-extra": "^9.0.13",
-    "@types/lodash": "^4.14.182",
-    "fs-extra": "^10.1.0",
-    "lodash": "^4.17.21"
-  },
+  "devDependencies": {},
   "packageManager": "yarn@^1.22.11"
 }

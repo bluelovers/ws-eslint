@@ -241,6 +241,10 @@ declare const _rules: {
 		checkParameterProperties: boolean;
 		treatMethodsAsReadonly: boolean;
 	})[];
+	"no-extra-parens": string;
+	"@typescript-eslint/no-extra-parens": (string | {
+		ignoreJSX: string;
+	})[];
 };
 
 export {

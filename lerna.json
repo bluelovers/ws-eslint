@@ -33,7 +33,8 @@
     "version": {
       "noPrivate": true,
       "conventionalCommits": true,
-      "changelogPreset": "@bluelovers/conventional-changelog-bluelovers"
+      "changelogPreset": "@bluelovers/conventional-changelog-bluelovers",
+      "concurrency": 1
     },
     "run": {
       "concurrency": 1,

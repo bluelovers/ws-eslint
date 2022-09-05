@@ -1,6 +1,6 @@
 import { rules } from "./rules";
 import { ESLINT_SWITCH, PLUGIN_NAME } from './const';
-import noIrregularWhitespace from './rules/no-irregular-whitespace';
+import { noIrregularWhitespace } from './rules/no-irregular-whitespace';
 
 export { rules }
 

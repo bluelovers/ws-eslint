@@ -394,6 +394,14 @@ var rules = {
 			checkParameterProperties: true,
 			treatMethodsAsReadonly: true
 		}
+	],
+	"no-extra-parens": "off",
+	"@typescript-eslint/no-extra-parens": [
+		"error",
+		"all",
+		{
+			ignoreJSX: "all"
+		}
 	]
 };
 var EslintrcJson = {

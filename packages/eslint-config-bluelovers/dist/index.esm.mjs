@@ -238,6 +238,10 @@ const e = "@typescript-eslint/parser", n = [ "@typescript-eslint", "cjk" ], o = 
   "@typescript-eslint/prefer-readonly-parameter-types": [ "warn", {
     checkParameterProperties: !0,
     treatMethodsAsReadonly: !0
+  } ],
+  "no-extra-parens": "off",
+  "@typescript-eslint/no-extra-parens": [ "error", "all", {
+    ignoreJSX: "all"
   } ]
 };
 

@@ -240,9 +240,10 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
   }
 
 });
+var noIrregularWhitespace$1 = noIrregularWhitespace;
 
 const rules = {
-  [noIrregularWhitespace.name]: noIrregularWhitespace.rule
+  [noIrregularWhitespace$1.name]: noIrregularWhitespace$1.rule
 };
 
 const PLUGIN_NAME = 'cjk';
