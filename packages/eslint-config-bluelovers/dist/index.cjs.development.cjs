@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var findTsconfig = require('@yarn-tool/find-tsconfig');
+var requireResolve = require('@yarn-tool/require-resolve');
 
 var parser = "@typescript-eslint/parser";
 var plugins = [
@@ -12,6 +13,8 @@ var plugins = [
 var parserOptions = {
 	project: "./tsconfig.json"
 };
+var overrides = [
+];
 var rules = {
 	"array-callback-return": "error",
 	"arrow-parens": "warn",
@@ -413,6 +416,7 @@ var EslintrcJson = {
 	"plugin:cjk/recommended"
 ],
 	parserOptions: parserOptions,
+	overrides: overrides,
 	rules: rules
 };
 
@@ -420,18 +424,30 @@ const _parser = EslintrcJson['parser'];
 const _plugins = EslintrcJson['plugins'];
 const _extends = EslintrcJson['extends'];
 const _parserOptions = EslintrcJson['parserOptions'];
+const _overrides = EslintrcJson['overrides'];
 const _rules = EslintrcJson['rules'];
 
-if (_parserOptions.project) {
-  const cwd = /*#__PURE__*/process.cwd();
-  const file = /*#__PURE__*/findTsconfig.findTsconfig(cwd);
-
-  if (file) {
-    _parserOptions.project = file;
-  }
+const cwd = /*#__PURE__*/process.cwd();
+const file = /*#__PURE__*/findTsconfig.findTsconfig(cwd);
+if (file) {
+  _parserOptions.project = file;
 }
+(() => {
+  const _ = /*#__PURE__*/requireResolve.requireResolveExtra('eslint-plugin-jest');
+  if (_ !== null && _ !== void 0 && _.result) {
+    _overrides.push({
+      "files": ["**/*.(spec|test).[cm]?tsx?"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended", "plugin:jest/style"],
+      "rules": {
+        "jest/expect-expect": "warn"
+      }
+    });
+  }
+})();
 
-exports["extends"] = _extends;
+exports.extends = _extends;
+exports.overrides = _overrides;
 exports.parser = _parser;
 exports.parserOptions = _parserOptions;
 exports.plugins = _plugins;

@@ -8,5 +8,7 @@ const _extends = EslintrcJson['extends'];
 export { _extends as extends };
 const _parserOptions = EslintrcJson['parserOptions'];
 export { _parserOptions as parserOptions };
+const _overrides = EslintrcJson['overrides'];
+export { _overrides as overrides };
 const _rules = EslintrcJson['rules'];
 export { _rules as rules };

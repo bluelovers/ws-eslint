@@ -12,6 +12,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "overrides": [],
   "rules": {
     "array-callback-return": "error",
     "arrow-parens": "warn",

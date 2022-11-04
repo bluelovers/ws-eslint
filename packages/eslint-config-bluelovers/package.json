@@ -32,8 +32,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.esm.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.esm.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -83,13 +83,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-tsconfig": "^2.0.5",
+    "@yarn-tool/find-tsconfig": "^2.0.12",
+    "@yarn-tool/require-resolve": "^2.0.9",
     "eslint-plugin-cjk": "^1.0.7"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "eslint": "^8.23.0"
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0"
   },
   "packageManager": "yarn@^1.22.11"
 }

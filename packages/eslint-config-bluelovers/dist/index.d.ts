@@ -4,6 +4,7 @@ declare const _extends: string[];
 declare const _parserOptions: {
 	project: string;
 };
+declare const _overrides: any[];
 declare const _rules: {
 	"array-callback-return": string;
 	"arrow-parens": string;
