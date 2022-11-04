@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.11...eslint-config-bluelovers@2.0.12) (2022-11-04)
+
+
+
+### ✨　Features
+
+* add config for `eslint-plugin-jest` ([7e05d8a](https://github.com/bluelovers/ws-eslint/commit/7e05d8ae3f15a0afe4f8b79246a8595cbecb573b))
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.10...eslint-config-bluelovers@2.0.11) (2022-09-05)
 
 
