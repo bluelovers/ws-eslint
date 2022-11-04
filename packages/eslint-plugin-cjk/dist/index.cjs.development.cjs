@@ -8,7 +8,8 @@ function createGlobalLinebreakMatcher() {
 }
 
 function createRule(meta, rule) {
-  return { ...meta,
+  return {
+    ...meta,
     rule
   };
 }
@@ -17,7 +18,6 @@ function removeRegexClass(re, ignoresRe) {
   if (!ignoresRe) {
     return re;
   }
-
   const source = re.source.replace(ignoresRe, "");
   return new RegExp(source, re.flags);
 }
@@ -25,7 +25,6 @@ function handleIgnoreRe(ignores) {
   if (!ignores || !(ignores !== null && ignores !== void 0 && ignores.length)) {
     return null;
   }
-
   const source = ignores.map(c => {
     if (c === "\f" || c === "\\f" || c === "\\\\f") {
       return "\\\\f";
@@ -38,7 +37,6 @@ function handleIgnoreRe(ignores) {
     } else if (c.startsWith("\\\\")) {
       return c;
     }
-
     throw new TypeError(`${c} \\u${c.codePointAt(0).toString(16)}`);
   }).join("|");
   return new RegExp(source, "ug");
@@ -110,7 +108,6 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
     "skipRegExps": false,
     ignores: []
   }],
-
   create(context) {
     let errors = [];
     const options = context.options[0] || {};
@@ -123,7 +120,6 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
     const ignoresRe = handleIgnoreRe(options.ignores);
     const ALL_IRREGULARS_LOCAL = removeRegexClass(ALL_IRREGULARS, ignoresRe);
     const IRREGULAR_WHITESPACE_LOCAL = removeRegexClass(IRREGULAR_WHITESPACE, ignoresRe);
-
     function removeWhitespaceError(node) {
       const locStart = node.loc.start;
       const locEnd = node.loc.end;
@@ -133,18 +129,15 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
         }
       }) => errorLocStart.line < locStart.line || errorLocStart.line === locStart.line && errorLocStart.column < locStart.column || errorLocStart.line === locEnd.line && errorLocStart.column >= locEnd.column || errorLocStart.line > locEnd.line);
     }
-
     function removeInvalidNodeErrorsInIdentifierOrLiteral(node) {
       const shouldCheckStrings = skipStrings && typeof node.value === "string";
       const shouldCheckRegExps = skipRegExps && Boolean(node.regex);
-
       if (shouldCheckStrings || shouldCheckRegExps) {
         if (ALL_IRREGULARS_LOCAL.test(node.raw)) {
           removeWhitespaceError(node);
         }
       }
     }
-
     function removeInvalidNodeErrorsInTemplateLiteral(node) {
       if (typeof node.value.raw === "string") {
         if (ALL_IRREGULARS_LOCAL.test(node.value.raw)) {
@@ -152,19 +145,16 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
         }
       }
     }
-
     function removeInvalidNodeErrorsInComment(node) {
       if (ALL_IRREGULARS_LOCAL.test(node.value)) {
         removeWhitespaceError(node);
       }
     }
-
     function checkForIrregularWhitespace(node) {
       const sourceLines = sourceCode.lines;
       sourceLines.forEach((sourceLine, lineIndex) => {
         const lineNumber = lineIndex + 1;
         let match;
-
         while ((match = IRREGULAR_WHITESPACE_LOCAL.exec(sourceLine)) !== null) {
           errors.push({
             node,
@@ -183,14 +173,12 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
         }
       });
     }
-
     function checkForIrregularLineTerminators(node) {
       const source = sourceCode.getText(),
-            sourceLines = sourceCode.lines,
-            linebreaks = source.match(LINE_BREAK);
+        sourceLines = sourceCode.lines,
+        linebreaks = source.match(LINE_BREAK);
       let lastLineIndex = -1,
-          match;
-
+        match;
       while ((match = IRREGULAR_LINE_TERMINATORS.exec(source)) !== null) {
         const lineIndex = linebreaks.indexOf(match[0], lastLineIndex + 1) || 0;
         errors.push({
@@ -210,52 +198,40 @@ const noIrregularWhitespace = /*#__PURE__*/createRule({
         lastLineIndex = lineIndex;
       }
     }
-
     function noop() {}
-
     const nodes = {};
-
     if (ALL_IRREGULARS_LOCAL.test(sourceCode.getText())) {
       nodes.Program = function (node) {
         checkForIrregularWhitespace(node);
         checkForIrregularLineTerminators(node);
       };
-
       nodes.Identifier = removeInvalidNodeErrorsInIdentifierOrLiteral;
       nodes.Literal = removeInvalidNodeErrorsInIdentifierOrLiteral;
       nodes.TemplateElement = skipTemplates ? removeInvalidNodeErrorsInTemplateLiteral : noop;
-
       nodes["Program:exit"] = function () {
         if (skipComments) {
           commentNodes.forEach(removeInvalidNodeErrorsInComment);
         }
-
         errors.forEach(error => context.report(error));
       };
     } else {
       nodes.Program = noop;
     }
-
     return nodes;
   }
-
 });
-var noIrregularWhitespace$1 = noIrregularWhitespace;
 
 const rules = {
-  [noIrregularWhitespace$1.name]: noIrregularWhitespace$1.rule
+  [noIrregularWhitespace.name]: noIrregularWhitespace.rule
 };
 
 const PLUGIN_NAME = 'cjk';
 var ESLINT_SWITCH;
-
 (function (ESLINT_SWITCH) {
   ESLINT_SWITCH["ERROR"] = "error";
   ESLINT_SWITCH["OFF"] = "off";
 })(ESLINT_SWITCH || (ESLINT_SWITCH = {}));
-
 var ESLINT_META_TYPE;
-
 (function (ESLINT_META_TYPE) {
   ESLINT_META_TYPE["PROBLEM"] = "problem";
 })(ESLINT_META_TYPE || (ESLINT_META_TYPE = {}));

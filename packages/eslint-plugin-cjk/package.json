@@ -36,9 +36,11 @@
       "require": "./dist/index.cjs",
       "import": "./dist/index.esm.mjs"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
   },
   "main": "dist/index.cjs",
+  "unpkg": "dist/index.umd.production.min.cjs",
   "module": "dist/index.esm.mjs",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
@@ -61,10 +63,12 @@
     "posttest": "yarn run build",
     "prebuild": "ts-node ./scripts/build-index.ts",
     "prebuild_": "yarn run test",
-    "build": "yarn run build:tsdx && yarn run build:dts",
-    "build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+    "build": "yarn run build:tsdx && yarn run build:dts:bundle",
+    "build:dts:bundle": "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle",
+    "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
+    "build:dts:tsc": "yarn run build:dts:copy && yarn run build:dts:tsc:emit && yarn run build:dts:copy",
+    "build:dts:tsc:emit": "tsc --emitDeclarationOnly --declaration --noEmit false",
     "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
-    "postbuild": "ynpx dts-bundle-generator -o dist/index.d.ts src/index.ts",
     "ci:install": "echo ci:install",
     "ci:build": "echo ci:build",
     "preversion": "yarn run build",
