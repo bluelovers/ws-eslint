@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-bluelovers",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "my eslint config with @typescript-eslint/eslint-plugin",
   "keywords": [
     "bluelovers",

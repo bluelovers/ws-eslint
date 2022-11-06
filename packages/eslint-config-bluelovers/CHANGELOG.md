@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.14...eslint-config-bluelovers@2.0.15) (2022-11-06)
+
+
+
+### ✨　Features
+
+* **semi:** omitLastInOneLineBlock ([52ae7ac](https://github.com/bluelovers/ws-eslint/commit/52ae7ac2dcd317bfade20ec4c9b22f16f6723441))
+
+
+
 ## [2.0.14](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.13...eslint-config-bluelovers@2.0.14) (2022-11-06)
 
 
