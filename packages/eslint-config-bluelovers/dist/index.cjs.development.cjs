@@ -312,7 +312,10 @@ var rules = {
 	semi: "off",
 	"@typescript-eslint/semi": [
 		"warn",
-		"always"
+		"always",
+		{
+			omitLastInOneLineBlock: true
+		}
 	],
 	"@typescript-eslint/unbound-method": [
 		"error",

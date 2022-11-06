@@ -199,7 +199,9 @@ const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = 
     checkCompoundAssignments: !0
   } ],
   semi: "off",
-  "@typescript-eslint/semi": [ "warn", "always" ],
+  "@typescript-eslint/semi": [ "warn", "always", {
+    omitLastInOneLineBlock: !0
+  } ],
   "@typescript-eslint/unbound-method": [ "error", {
     ignoreStatic: !0
   } ],

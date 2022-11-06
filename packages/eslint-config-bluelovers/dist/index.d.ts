@@ -201,7 +201,9 @@ declare const _rules: {
 		checkCompoundAssignments: boolean;
 	})[];
 	semi: string;
-	"@typescript-eslint/semi": string[];
+	"@typescript-eslint/semi": (string | {
+		omitLastInOneLineBlock: boolean;
+	})[];
 	"@typescript-eslint/unbound-method": (string | {
 		ignoreStatic: boolean;
 	})[];
