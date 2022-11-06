@@ -15,6 +15,10 @@ var parserOptions = {
 };
 var overrides = [
 ];
+var ignorePatterns = [
+	"**/dist",
+	"**/__file_snapshots__"
+];
 var rules = {
 	"array-callback-return": "error",
 	"arrow-parens": "warn",
@@ -417,6 +421,7 @@ var EslintrcJson = {
 ],
 	parserOptions: parserOptions,
 	overrides: overrides,
+	ignorePatterns: ignorePatterns,
 	rules: rules
 };
 
@@ -425,6 +430,7 @@ const _plugins = EslintrcJson['plugins'];
 const _extends = EslintrcJson['extends'];
 const _parserOptions = EslintrcJson['parserOptions'];
 const _overrides = EslintrcJson['overrides'];
+const _ignorePatterns = EslintrcJson['ignorePatterns'];
 const _rules = EslintrcJson['rules'];
 
 const cwd = /*#__PURE__*/process.cwd();
@@ -447,6 +453,7 @@ if (file) {
 })();
 
 exports.extends = _extends;
+exports.ignorePatterns = _ignorePatterns;
 exports.overrides = _overrides;
 exports.parser = _parser;
 exports.parserOptions = _parserOptions;

@@ -21,8 +21,9 @@ o && (n.project = o), (() => {
     }
   });
 })(), exports.extends = [ "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:cjk/recommended" ], 
-exports.overrides = t, exports.parser = "@typescript-eslint/parser", exports.parserOptions = n, 
-exports.plugins = [ "@typescript-eslint", "cjk" ], exports.rules = {
+exports.ignorePatterns = [ "**/dist", "**/__file_snapshots__" ], exports.overrides = t, 
+exports.parser = "@typescript-eslint/parser", exports.parserOptions = n, exports.plugins = [ "@typescript-eslint", "cjk" ], 
+exports.rules = {
   "array-callback-return": "error",
   "arrow-parens": "warn",
   "block-scoped-var": "error",

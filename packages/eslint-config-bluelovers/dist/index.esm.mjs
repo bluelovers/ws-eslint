@@ -2,9 +2,9 @@ import { findTsconfig as r } from "@yarn-tool/find-tsconfig";
 
 import { requireResolveExtra as e } from "@yarn-tool/require-resolve";
 
-const n = "@typescript-eslint/parser", o = [ "@typescript-eslint", "cjk" ], t = [ "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:cjk/recommended" ], s = {
+const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = [ "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:cjk/recommended" ], s = {
   project: "./tsconfig.json"
-}, i = [], a = {
+}, i = [], a = [ "**/dist", "**/__file_snapshots__" ], p = {
   "array-callback-return": "error",
   "arrow-parens": "warn",
   "block-scoped-var": "error",
@@ -245,9 +245,9 @@ const n = "@typescript-eslint/parser", o = [ "@typescript-eslint", "cjk" ], t = 
   "@typescript-eslint/no-extra-parens": [ "error", "all", {
     ignoreJSX: "all"
   } ]
-}, p = r(process.cwd());
+}, l = r(process.cwd());
 
-p && (s.project = p), (() => {
+l && (s.project = l), (() => {
   const r = e("eslint-plugin-jest");
   null != r && r.result && i.push({
     files: [ "**/*.(spec|test).[cm]?tsx?" ],
@@ -259,5 +259,5 @@ p && (s.project = p), (() => {
   });
 })();
 
-export { t as extends, i as overrides, n as parser, s as parserOptions, o as plugins, a as rules };
+export { o as extends, a as ignorePatterns, i as overrides, n as parser, s as parserOptions, t as plugins, p as rules };
 //# sourceMappingURL=index.esm.mjs.map

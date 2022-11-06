@@ -5,6 +5,7 @@ declare const _parserOptions: {
 	project: string;
 };
 declare const _overrides: any[];
+declare const _ignorePatterns: string[];
 declare const _rules: {
 	"array-callback-return": string;
 	"arrow-parens": string;
