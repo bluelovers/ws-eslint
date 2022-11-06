@@ -246,6 +246,7 @@ declare const _rules: {
 	"no-extra-parens": string;
 	"@typescript-eslint/no-extra-parens": (string | {
 		ignoreJSX: string;
+		nestedBinaryExpressions: boolean;
 	})[];
 };
 

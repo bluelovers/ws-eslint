@@ -386,7 +386,7 @@ var rules = {
 		"error"
 	],
 	"no-mixed-operators": [
-		"error"
+		"warn"
 	],
 	"linebreak-style": [
 		"error",
@@ -404,10 +404,11 @@ var rules = {
 	],
 	"no-extra-parens": "off",
 	"@typescript-eslint/no-extra-parens": [
-		"error",
+		"warn",
 		"all",
 		{
-			ignoreJSX: "all"
+			ignoreJSX: "all",
+			nestedBinaryExpressions: false
 		}
 	]
 };

@@ -234,7 +234,7 @@ const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = 
   "@typescript-eslint/type-annotation-spacing": [ "error" ],
   "@typescript-eslint/unified-signatures": "warn",
   "no-misleading-character-class": [ "error" ],
-  "no-mixed-operators": [ "error" ],
+  "no-mixed-operators": [ "warn" ],
   "linebreak-style": [ "error", "unix" ],
   "@typescript-eslint/no-require-imports": [ "warn" ],
   "@typescript-eslint/prefer-readonly-parameter-types": [ "warn", {
@@ -242,8 +242,9 @@ const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = 
     treatMethodsAsReadonly: !0
   } ],
   "no-extra-parens": "off",
-  "@typescript-eslint/no-extra-parens": [ "error", "all", {
-    ignoreJSX: "all"
+  "@typescript-eslint/no-extra-parens": [ "warn", "all", {
+    ignoreJSX: "all",
+    nestedBinaryExpressions: !1
   } ]
 }, l = r(process.cwd());
 
