@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.13...eslint-config-bluelovers@2.0.14) (2022-11-06)
+
+
+
+### 🐛　Bug Fixes
+
+* no-extra-parens and no-mixed-operators conflict ([4101a02](https://github.com/bluelovers/ws-eslint/commit/4101a0283d4795b7ec749c18def84f20267f3957)), closes [/github.com/eslint/eslint/issues/8891#issuecomment-313618753](https://github.com//github.com/eslint/eslint/issues/8891/issues/issuecomment-313618753)
+
+
+### 📌　Dependencies
+
+* update deps ([56ac83d](https://github.com/bluelovers/ws-eslint/commit/56ac83d9e0515880e202a39b24e5c7b2a0398d61))
+
+
+
 ## [2.0.13](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.12...eslint-config-bluelovers@2.0.13) (2022-11-06)
 
 
