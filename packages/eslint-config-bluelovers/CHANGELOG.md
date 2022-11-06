@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.12...eslint-config-bluelovers@2.0.13) (2022-11-06)
+
+
+
+### ✨　Features
+
+* add ignorePatterns ([2c83d91](https://github.com/bluelovers/ws-eslint/commit/2c83d916427120f06704c263ba9c591c0c8badfb))
+
+
+
 ## [2.0.12](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.11...eslint-config-bluelovers@2.0.12) (2022-11-04)
 
 
