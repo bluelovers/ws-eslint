@@ -202,7 +202,7 @@ const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = 
   "@typescript-eslint/semi": [ "warn", "always", {
     omitLastInOneLineBlock: !0
   } ],
-  "@typescript-eslint/unbound-method": [ "error", {
+  "@typescript-eslint/unbound-method": [ "warn", {
     ignoreStatic: !0
   } ],
   "no-irregular-whitespace": "off",

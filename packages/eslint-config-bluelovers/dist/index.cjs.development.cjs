@@ -318,7 +318,7 @@ var rules = {
 		}
 	],
 	"@typescript-eslint/unbound-method": [
-		"error",
+		"warn",
 		{
 			ignoreStatic: true
 		}
