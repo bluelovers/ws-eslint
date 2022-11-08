@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.15...eslint-config-bluelovers@2.0.16) (2022-11-08)
+
+
+
+### ✨　Features
+
+* @typescript-eslint/unbound-method => warn ([a20545c](https://github.com/bluelovers/ws-eslint/commit/a20545c4958ec3e896a54bf61bd923943aaa7a7f))
+
+
+
 ## [2.0.15](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.14...eslint-config-bluelovers@2.0.15) (2022-11-06)
 
 
