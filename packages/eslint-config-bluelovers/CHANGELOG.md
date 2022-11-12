@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.16...eslint-config-bluelovers@2.0.17) (2022-11-12)
+
+
+
+### 🐛　Bug Fixes
+
+* { no-redeclare => @typescript-eslint/no-redeclare } ([82ddd56](https://github.com/bluelovers/ws-eslint/commit/82ddd562f445fca705e945d9bb02399da57199d1))
+
+
+
 ## [2.0.16](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.15...eslint-config-bluelovers@2.0.16) (2022-11-08)
 
 
