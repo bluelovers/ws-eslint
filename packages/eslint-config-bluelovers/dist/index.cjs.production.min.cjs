@@ -4,15 +4,15 @@ Object.defineProperty(exports, "__esModule", {
   value: !0
 });
 
-var r = require("@yarn-tool/find-tsconfig"), e = require("@yarn-tool/require-resolve");
+var e = require("@yarn-tool/find-tsconfig"), r = require("@yarn-tool/require-resolve");
 
 const n = {
   project: "./tsconfig.json"
-}, t = [], o = r.findTsconfig(process.cwd());
+}, t = [], o = e.findTsconfig(process.cwd());
 
 o && (n.project = o), (() => {
-  const r = e.requireResolveExtra("eslint-plugin-jest");
-  null != r && r.result && t.push({
+  const e = r.requireResolveExtra("eslint-plugin-jest");
+  null != e && e.result && t.push({
     files: [ "**/*.(spec|test).[cm]?tsx?" ],
     plugins: [ "jest" ],
     extends: [ "plugin:jest/recommended", "plugin:jest/style" ],
@@ -92,7 +92,11 @@ exports.rules = {
   "no-octal-escape": "error",
   "no-proto": "warn",
   "no-prototype-builtins": "error",
-  "no-redeclare": "error",
+  "no-redeclare": "off",
+  "@typescript-eslint/no-redeclare": [ "error", {
+    builtinGlobals: !0,
+    ignoreDeclarationMerge: !0
+  } ],
   "no-regex-spaces": "error",
   "no-return-assign": [ "warn", "except-parens" ],
   "no-return-await": "off",

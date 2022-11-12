@@ -76,6 +76,10 @@ declare const _rules: {
 	"no-proto": string;
 	"no-prototype-builtins": string;
 	"no-redeclare": string;
+	"@typescript-eslint/no-redeclare": (string | {
+		builtinGlobals: boolean;
+		ignoreDeclarationMerge: boolean;
+	})[];
 	"no-regex-spaces": string;
 	"no-return-assign": string[];
 	"no-return-await": string;
