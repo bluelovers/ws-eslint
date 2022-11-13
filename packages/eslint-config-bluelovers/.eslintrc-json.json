@@ -316,7 +316,7 @@
     ],
     "semi": "off",
     "@typescript-eslint/semi": [
-      "warn",
+      "off",
       "always",
       {
         "omitLastInOneLineBlock": true
