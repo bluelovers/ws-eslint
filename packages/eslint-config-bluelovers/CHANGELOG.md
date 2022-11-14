@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.18](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.17...eslint-config-bluelovers@2.0.18) (2022-11-14)
+
+
+
+### ✨　Features
+
+* disable @typescript-eslint/semi ([21cc1ea](https://github.com/bluelovers/ws-eslint/commit/21cc1eac4f390cece98fb1b25b66781df16a8ee2))
+
+
+### 🛠　Build System
+
+* auto commit ([93cb80d](https://github.com/bluelovers/ws-eslint/commit/93cb80d456dc60238e761076360856ea7cf78ee3))
+
+
+### 🔖　Miscellaneous
+
+* . ([830a6b3](https://github.com/bluelovers/ws-eslint/commit/830a6b31ea44a6f3c3af37cdbeabd2a110bb27e5))
+* . ([bdee70f](https://github.com/bluelovers/ws-eslint/commit/bdee70f486f475aa7d09882fc7b56612f01642ae))
+* . ([0c60f53](https://github.com/bluelovers/ws-eslint/commit/0c60f539e8840ca8e3e777998e6f2513097e3476))
+
+
+
 ## [2.0.17](https://github.com/bluelovers/ws-eslint/compare/eslint-config-bluelovers@2.0.16...eslint-config-bluelovers@2.0.17) (2022-11-12)
 
 
