@@ -79,10 +79,10 @@
   "resolutions": {},
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
     "eslint": "^8.27.0",
-    "eslint-plugin-jest": "^27.1.4",
+    "eslint-plugin-jest": "^27.1.5",
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
     "ts-type": "^3.0.1",
