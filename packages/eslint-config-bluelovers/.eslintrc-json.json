@@ -422,6 +422,14 @@
         "ignoreJSX": "all",
         "nestedBinaryExpressions": false
       }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": false,
+        "fixStyle": "separate-type-imports"
+      }
     ]
   }
 }

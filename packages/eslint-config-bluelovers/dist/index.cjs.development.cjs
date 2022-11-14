@@ -318,7 +318,7 @@ var rules = {
 	],
 	semi: "off",
 	"@typescript-eslint/semi": [
-		"warn",
+		"off",
 		"always",
 		{
 			omitLastInOneLineBlock: true
@@ -419,6 +419,14 @@ var rules = {
 		{
 			ignoreJSX: "all",
 			nestedBinaryExpressions: false
+		}
+	],
+	"@typescript-eslint/consistent-type-imports": [
+		"warn",
+		{
+			prefer: "type-imports",
+			disallowTypeAnnotations: false,
+			fixStyle: "separate-type-imports"
 		}
 	]
 };

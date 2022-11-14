@@ -222,7 +222,7 @@ exports.rules = {
     checkCompoundAssignments: !0
   } ],
   semi: "off",
-  "@typescript-eslint/semi": [ "warn", "always", {
+  "@typescript-eslint/semi": [ "off", "always", {
     omitLastInOneLineBlock: !0
   } ],
   "@typescript-eslint/unbound-method": [ "warn", {
@@ -270,6 +270,11 @@ exports.rules = {
   "@typescript-eslint/no-extra-parens": [ "warn", "all", {
     ignoreJSX: "all",
     nestedBinaryExpressions: !1
+  } ],
+  "@typescript-eslint/consistent-type-imports": [ "warn", {
+    prefer: "type-imports",
+    disallowTypeAnnotations: !1,
+    fixStyle: "separate-type-imports"
   } ]
 };
 //# sourceMappingURL=index.cjs.production.min.cjs.map

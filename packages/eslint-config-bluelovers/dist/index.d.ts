@@ -254,6 +254,11 @@ declare const _rules: {
 		ignoreJSX: string;
 		nestedBinaryExpressions: boolean;
 	})[];
+	"@typescript-eslint/consistent-type-imports": (string | {
+		prefer: string;
+		disallowTypeAnnotations: boolean;
+		fixStyle: string;
+	})[];
 };
 
 export {

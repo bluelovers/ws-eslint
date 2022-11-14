@@ -4,7 +4,7 @@ import { requireResolveExtra as e } from "@yarn-tool/require-resolve";
 
 const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = [ "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:cjk/recommended" ], s = {
   project: "./tsconfig.json"
-}, i = [], a = [ "**/dist", "**/__file_snapshots__" ], l = {
+}, i = [], a = [ "**/dist", "**/__file_snapshots__" ], p = {
   "array-callback-return": "error",
   "arrow-parens": "warn",
   "block-scoped-var": "error",
@@ -203,7 +203,7 @@ const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = 
     checkCompoundAssignments: !0
   } ],
   semi: "off",
-  "@typescript-eslint/semi": [ "warn", "always", {
+  "@typescript-eslint/semi": [ "off", "always", {
     omitLastInOneLineBlock: !0
   } ],
   "@typescript-eslint/unbound-method": [ "warn", {
@@ -251,10 +251,15 @@ const n = "@typescript-eslint/parser", t = [ "@typescript-eslint", "cjk" ], o = 
   "@typescript-eslint/no-extra-parens": [ "warn", "all", {
     ignoreJSX: "all",
     nestedBinaryExpressions: !1
+  } ],
+  "@typescript-eslint/consistent-type-imports": [ "warn", {
+    prefer: "type-imports",
+    disallowTypeAnnotations: !1,
+    fixStyle: "separate-type-imports"
   } ]
-}, p = r(process.cwd());
+}, l = r(process.cwd());
 
-p && (s.project = p), (() => {
+l && (s.project = l), (() => {
   const r = e("eslint-plugin-jest");
   null != r && r.result && i.push({
     files: [ "**/*.(spec|test).[cm]?tsx?" ],
@@ -266,5 +271,5 @@ p && (s.project = p), (() => {
   });
 })();
 
-export { o as extends, a as ignorePatterns, i as overrides, n as parser, s as parserOptions, t as plugins, l as rules };
+export { o as extends, a as ignorePatterns, i as overrides, n as parser, s as parserOptions, t as plugins, p as rules };
 //# sourceMappingURL=index.esm.mjs.map
